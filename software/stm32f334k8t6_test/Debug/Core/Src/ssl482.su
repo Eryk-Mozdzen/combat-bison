@@ -1,0 +1,8 @@
+ssl482.c:24:6:SSL482_Init	16	static
+ssl482.c:43:6:SSL482_OnRecive	24	static
+ssl482.c:86:25:SSL482_GetStatus	16	static
+ssl482.c:104:7:__SSL482_GetProcessedThrottle	24	static
+ssl482.c:125:7:__SSL482_GetProcessedSteering	24	static
+ssl482.c:145:23:__SSL482_GetProcessedAUX1	16	static
+ssl482.c:160:23:__SSL482_GetProcessedAUX2	16	static
+ssl482.c:176:9:__SSL482_GetFrameCheckum	24	static

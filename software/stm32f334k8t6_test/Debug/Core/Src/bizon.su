@@ -1,0 +1,4 @@
+bizon.c:3:6:bizon_init	16	static
+bizon.c:16:6:bizon_drive	32	static
+bizon.c:23:6:bizon_set_max_speed	16	static
+bizon.c:27:6:bizon_set_esc_speed	16	static

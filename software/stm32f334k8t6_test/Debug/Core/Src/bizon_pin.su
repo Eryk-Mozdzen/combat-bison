@@ -1,0 +1,4 @@
+bizon_pin.c:12:1:bizon_pin_init	24	static
+bizon_pin.c:17:6:bizon_pin_set_high	16	static
+bizon_pin.c:20:6:bizon_pin_set_low	16	static
+bizon_pin.c:23:6:bizon_pin_toggle	16	static
