@@ -2,3 +2,8 @@
 **/OldVersions/*
 **/*-backups
 **/fp-info-cache
+
+**/.metadata
+**/.settings
+**/Debug
+**/*Debug.launch

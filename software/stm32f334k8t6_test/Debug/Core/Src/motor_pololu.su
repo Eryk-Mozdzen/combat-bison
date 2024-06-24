@@ -1,5 +1,0 @@
-motor_pololu.c:3:6:motor_pololu_init	24	static
-motor_pololu.c:8:6:motor_pololu_set_speed	32	static
-motor_pololu.c:18:6:motor_pololu_go_forward	16	static
-motor_pololu.c:22:6:motor_pololu_go_backward	16	static
-motor_pololu.c:26:6:motor_pololu_soft_stop	16	static

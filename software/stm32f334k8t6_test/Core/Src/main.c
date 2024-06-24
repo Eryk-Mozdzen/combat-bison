@@ -103,17 +103,18 @@ int main(void)
   MX_TIM3_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+
 	BizonPin led1;
 	BizonPin led2;
 	BizonPin led3;
 	bizon_pin_init(&led1, LED1_GPIO_Port, LED1_Pin);
 	bizon_pin_init(&led2, LED2_GPIO_Port, LED2_Pin);
 	bizon_pin_init(&led3, LED3_GPIO_Port, LED3_Pin);
-	;
+
 	for(int i = 0; i< 6;++i){
 		bizon_pin_toggle(&led1);
-			bizon_pin_toggle(&led2);
-			bizon_pin_toggle(&led3);
+		bizon_pin_toggle(&led2);
+		bizon_pin_toggle(&led3);
 		HAL_Delay(500);
 	}
 
@@ -124,35 +125,31 @@ int main(void)
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
 
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	uint16_t safety_tick = 0;
-  while (1)
-  {
+  while(1) {
 
-	  if(SSL482_GetStatus(&ssl) == SSL482_OK){
-		  bizon_pin_toggle(&led3);
-		  bizon_pin_set_low(&led1);
-		  bizon_drive(&bizon, ssl.throttle, ssl.steering);
-	  }
-	  else{
-		  bizon_pin_toggle(&led1);
-		  bizon_pin_set_low(&led3);
-		  bizon_drive(&bizon, 0.0, 0.0);
-	  }
+	if(SSL482_GetStatus(&ssl) == SSL482_OK){
+		bizon_pin_set_high(&led1);
+		bizon_pin_set_low(&led3);
+		bizon_drive(&bizon, ssl.throttle, ssl.steering);
 
-	  if(ssl.aux1 == SSL482_SW1_PRESSED){
-		  bizon_set_esc_speed(&bizon, 0.05);
-	  }
-	  else{
-		  bizon_set_esc_speed(&bizon, 0.0);
-	  }
-	  sdafadsdfda
-	  HAL_Delay(100);
-	  ++safety_tick;
+		if(ssl.aux1 == SSL482_SW1_PRESSED){
+			bizon_pin_set_high(&led2);
+			bizon_set_esc_speed(&bizon, 0.05);
+		} else{
+			bizon_pin_set_low(&led2);
+			bizon_set_esc_speed(&bizon, 0.0);
+		}
+	} else {
+		bizon_pin_toggle(&led3);
+		bizon_pin_set_low(&led1);
+		bizon_drive(&bizon, 0.0, 0.0);
+	}
+
+	HAL_Delay(100);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

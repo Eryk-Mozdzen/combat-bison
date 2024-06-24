@@ -9,7 +9,7 @@
 
 #include "bizon_pin.h"
 
-bizon_pin_init(BizonPin *bizon_pin, GPIO_TypeDef* port, uint32_t pin){
+void bizon_pin_init(BizonPin *bizon_pin, GPIO_TypeDef* port, uint32_t pin){
 	bizon_pin->pin = pin;
 	bizon_pin->port = port;
 }
